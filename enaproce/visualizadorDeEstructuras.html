@@ -45,7 +45,19 @@
         <div class="row" hidden>
             <div class="col-xs-4">
                 <h5>Fuente</h5>
-                <select id="fuente" onchange="init(this.value)"></select>
+                <select id="fuente" onchange="init(this.value); consultaAnios(this.value)"></select>
+            </div>
+        </div>
+        <div class="row" hidden>
+            <div class="col-xs-4">
+                <h5>Año</h5>
+                <select id="anio" onchange="init(this.value)"></select>
+            </div>
+        </div>
+        <div class="row" hidden>
+            <div class="col-xs-4">
+                <h5>Tipo Datos</h5>
+                <select id="tipoDato" onchange="init(this.value)"></select>
             </div>
         </div>
         <p></p>

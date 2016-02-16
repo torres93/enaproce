@@ -123,6 +123,8 @@ namespace enaproce
 
         [WebMethod]
         public string getVariables(string modelo, string fuente)
+        
+
         {
             try
             {
@@ -165,6 +167,67 @@ namespace enaproce
             }
         }
 
+        [WebMethod]
+        public string getAnios(string modelo, string fuente)
+        {
+            try
+            {
+                uti = new UtileriasSQL(int.Parse(modelo));
+                SqlParameter[] paramcollection = new SqlParameter[1];
+                paramcollection[0] = new SqlParameter("@ID_FUENTE", fuente);
+                SqlDataReader reader = uti.ExecuteReader(CommandType.StoredProcedure, "PR_OBTIENE_ANIO", paramcollection);
+
+                List<anios> aniosList = new List<anios>();
+                while (reader.Read())
+                {
+                    anios a = new anios();
+                    a.Anio = reader["ANIO"].ToString();
+                    a.Actual = reader["ACTUAL"].ToString();
+                    aniosList.Add(a);
+
+                }
+                string jsonString = JsonConvert.SerializeObject(aniosList);
+
+                reader.Close();
+                return jsonString;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [WebMethod]
+        public string getTipoDato(string modelo, string fuente, string variable)
+        {
+            try
+            {
+                uti = new UtileriasSQL(int.Parse(modelo));
+                SqlParameter[] paramcollection = new SqlParameter[2];
+                paramcollection[0] = new SqlParameter("@ID_FUENTE", fuente);
+                paramcollection[1] = new SqlParameter("@ID_VARIABLE_PADRE", variable);
+                SqlDataReader reader = uti.ExecuteReader(CommandType.StoredProcedure, "PR_OBTIENE_FUE_VAR_TIPO_DATO", paramcollection);
+
+                List<TipoDatos> TipoDatosList = new List<TipoDatos>();
+                int nivelMaximo = 1;
+                while (reader.Read())
+                {
+                    TipoDatos td = new TipoDatos();
+                    td.Id_tipo_dato = reader["ID_TIPO_DATO"].ToString();
+                    td.Desc = reader["DESCRIPCION"].ToString();
+                    TipoDatosList.Add(td);
+
+                }
+                string jsonString = JsonConvert.SerializeObject(TipoDatosList);
+
+                reader.Close();
+                return jsonString;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 
     public class Entidad_M
@@ -206,4 +269,12 @@ public class Fuente
 {
     public string IdFuente { get; set; }
     public string Descripcion { get; set; }
+}
+public class anios {
+    public string Anio { get; set; }
+    public string Actual { get; set; }
+}
+public class TipoDatos {
+    public string Id_tipo_dato { set; get; }
+    public string Desc { set; get; }
 }

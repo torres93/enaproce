@@ -7,12 +7,11 @@ var jActividades;
 var actSelected;
 $(document).ready(function () {
     consultaFuentes();
+    consultaAnios(1);
+    consultaTipoDatos(1);
+    
 })
 function consultaFuentes() {
-
-
-
-
     var modelo = $("#modelo").val();
     $.ajax({
         type: "POST",
@@ -43,6 +42,7 @@ function consultaFuentes() {
         }
     });
 }
+
 function init(fuente) {
     var modelo = $("#modelo").val();
     $.ajax({
@@ -194,7 +194,7 @@ function consultaDesgloseAct(actividad) {
             var label = document.createElement("label");
             li.id = "li" + jActividades[x].IdActividadCompuesta;
             input.type = "checkbox";
-            input.setAttribute("class", li.id);
+            input.setAttribute("id", li.id+'i');
             input.setAttribute("onClick", "addActividadSelected('" + jActividades[x].IdActividadCompuesta + "','"+li.id+"')");
             label.innerHTML = jActividades[x].Descripcion;
 
@@ -229,6 +229,7 @@ function consultaDesgloseAct(actividad) {
 
 
 function consultaDesglose(variable) {
+    actividades = [];
     varSelected = new JSON.constructor();
     varSelected.length = 0;
     var comboDesglose = document.getElementById("Desglose");
@@ -253,8 +254,8 @@ function consultaDesglose(variable) {
             var label = document.createElement("label");
             li.id = "li" + jVariables[x].IdVariableCompuesta;
             input.type = "checkbox";
-            input.setAttribute("class",li.id);
-            input.setAttribute("onClick", "addActividadSelected('" + jVariables[x].IdVariableCompuesta + "')");
+            input.setAttribute("id",li.id+'i');
+            input.setAttribute("onClick", "addActividadSelected('" + jVariables[x].IdVariableCompuesta + "','"+li.id+"')");
             label.innerHTML = jVariables[x].Descripcion;
 
             if (todasLasVariables[jVariables[x].IdVariableCompuesta].length > 0) {
@@ -286,6 +287,70 @@ function consultaDesglose(variable) {
 
 }
 
+function consultaAnios(fuente) {
+    var modelo = $("#modelo").val();
+    $.ajax({
+        type: "POST",
+        url: "servicioweb.asmx/getAnios",
+        data: "{'modelo':'" + modelo + "','fuente':'" + fuente + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            var jAnios = JSON.parse(msg.d);
+            var select = document.getElementById("anio");
+            if (select != null) {
+                while (select.hasChildNodes()) {
+                    select.removeChild(select.firstChild);
+                }
+            }
+            for (x = 0; x < jAnios.length; x++) {
+                var option = document.createElement("option");
+
+                option.label = jAnios[x]["Anio"];
+                select.appendChild(option);
+
+            }
+
+
+
+
+        }
+    });
+}
+function consultaTipoDatos(variable) {
+    var modelo = $("#modelo").val();
+    var fuente = $("#fuente").val();
+    if (fuente==null) {
+        fuente = 1;
+    }
+    $.ajax({
+        type: "POST",
+        url: "servicioweb.asmx/getTipoDato",
+        data: "{'modelo':'" + modelo + "','fuente':'" + fuente + "','variable':'" + variable + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            var jTipoD = JSON.parse(msg.d);
+            var select = document.getElementById("tipoDato");
+            if (select != null) {
+                while (select.hasChildNodes()) {
+                    select.removeChild(select.firstChild);
+                }
+            }
+            for (x = 0; x < jTipoD.length; x++) {
+                var option = document.createElement("option");
+
+                option.label = jTipoD[x]["Desc"];
+                select.appendChild(option);
+
+            }
+
+
+
+
+        }
+    });
+}
 
 function escondeUl(ul) {
     document.getElementById("ul" + ul).hidden = true;
@@ -304,15 +369,24 @@ function addVariableSelected(variable) {
     varSelected.length++;
 
 }
+actividades = [];
 function addActividadSelected(variable,id) {
     //checar si esta seleccionado
-    elemento = $('input.'+id);
-
-    if (elemento.hasAttribute == "checked") {
-        alert("ya tiene");
+    elemento = document.getElementById(id+'i');
+   
+    if (elemento.hasAttribute("checked")) {
+        for (var i = 0; i <actividades.length; i++) {
+            if (actividades[i] == variable) {
+                actividades.splice(i, 1);
+                elemento.removeAttribute("checked");
+                console.log(actividades);
+            }
+        }
     }
     else {
-      
-        elemento.setAttribute("checked","t");
+        elemento.setAttribute("checked", "true");
+        actividades.push(variable);
+        console.log(actividades);
+        
     }
 }
