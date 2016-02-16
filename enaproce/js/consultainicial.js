@@ -191,7 +191,8 @@ function consultaDesgloseAct(actividad) {
             var label = document.createElement("label");
             li.id = "li" + jActividades[x].IdActividadCompuesta;
             input.type = "checkbox";
-            input.setAttribute("onClick", "addActividadSelected('" + jActividades[x].IdActividadCompuesta + "')");
+            input.setAttribute("class", li.id);
+            input.setAttribute("onClick", "addActividadSelected('" + jActividades[x].IdActividadCompuesta + "','"+li.id+"')");
             label.innerHTML = jActividades[x].Descripcion;
 
             if (todasLasActividades[jActividades[x].IdActividadCompuesta].length > 0) {
@@ -249,6 +250,7 @@ function consultaDesglose(variable) {
             var label = document.createElement("label");
             li.id = "li" + jVariables[x].IdVariableCompuesta;
             input.type = "checkbox";
+            input.setAttribute("class",li.id);
             input.setAttribute("onClick", "addActividadSelected('" + jVariables[x].IdVariableCompuesta + "')");
             label.innerHTML = jVariables[x].Descripcion;
 
@@ -298,4 +300,16 @@ function addVariableSelected(variable) {
     varSelected[varSelected.length] = variable;
     varSelected.length++;
 
+}
+function addActividadSelected(variable,id) {
+    //checar si esta seleccionado
+    elemento = $('input.'+id);
+
+    if (elemento.hasAttribute == "checked") {
+        alert("ya tiene");
+    }
+    else {
+      
+        elemento.setAttribute("checked","");
+    }
 }
