@@ -10,6 +10,9 @@ $(document).ready(function () {
 })
 function consultaFuentes() {
 
+
+
+
     var modelo = $("#modelo").val();
     $.ajax({
         type: "POST",
@@ -310,6 +313,6 @@ function addActividadSelected(variable,id) {
     }
     else {
       
-        elemento.setAttribute("checked","");
+        elemento.setAttribute("checked","t");
     }
 }
