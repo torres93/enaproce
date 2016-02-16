@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="conexion1-Web.config Connection String" description="conexion1 Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=Desa2008\internet; Persist Security Info=false; User ID=MDENAPROCE.Owner; Password=Proce.08Des" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ANGEL\.PARGA\\Documents\\Proyectos\\2016\\enaproce\\enaproce\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='conexion1']/@connectionString" />
+  </parameter>
+  <parameter name="conexion2-Web.config Connection String" description="conexion2 Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=Desa2008\internet; Persist Security Info=false; User ID=Sistema_DSC.Owner; Password=S_d5c.0d" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ANGEL\.PARGA\\Documents\\Proyectos\\2016\\enaproce\\enaproce\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='conexion2']/@connectionString" />
+  </parameter>
+  <parameter name="conexion3-Web.config Connection String" description="conexion3 Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=Desa2008\internet; Persist Security Info=false; User ID=MDENEC.Owner; Password=wD3neC.0" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ANGEL\.PARGA\\Documents\\Proyectos\\2016\\enaproce\\enaproce\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='conexion3']/@connectionString" />
+  </parameter>
+</parameters>

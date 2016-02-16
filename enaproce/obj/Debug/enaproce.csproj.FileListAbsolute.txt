@@ -1,0 +1,7 @@
+C:\Users\ANGEL.PARGA\Documents\Proyectos\2016\enaproce\enaproce\bin\enaproce.dll.config
+C:\Users\ANGEL.PARGA\Documents\Proyectos\2016\enaproce\enaproce\bin\enaproce.dll
+C:\Users\ANGEL.PARGA\Documents\Proyectos\2016\enaproce\enaproce\bin\enaproce.pdb
+C:\Users\ANGEL.PARGA\Documents\Proyectos\2016\enaproce\enaproce\bin\Newtonsoft.Json.dll
+C:\Users\ANGEL.PARGA\Documents\Proyectos\2016\enaproce\enaproce\obj\Debug\enaproce.dll
+C:\Users\ANGEL.PARGA\Documents\Proyectos\2016\enaproce\enaproce\obj\Debug\enaproce.pdb
+C:\Users\ANGEL.PARGA\Documents\Proyectos\2016\enaproce\enaproce\obj\Debug\enaproce.csprojResolveAssemblyReference.cache

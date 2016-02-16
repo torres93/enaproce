@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo es utilizado por el proceso de paquete/publicación de nuestro proyecto Web. Puede personalizar el comportamiento de este proceso
+editando este archivo MSBuild. Para conocer más acerca de esto, visite http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdXPcTDiy4EqmONYQIFqowgAAAAACAAAAAAADZgAAwAAAABAAAACnWcWidr/PFSDSmX3EIF1tAAAAAASAAACgAAAAEAAAAO+oVAehFud7eXk/al/Qd8UgAAAA44YPbpIvYEcb14lirWPgJ7s1/OWFmAHR0B39r86263kUAAAAl21mmyBduNOMUGjEsWgFRIlywl8=</EncryptedPassword>
+    <_PublishTargetUrl>C:\visualizador</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/enaproce.dll">
+      <publishTime>02/16/2016 09:02:10</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>02/10/2013 12:10:10</publishTime>
+    </File>
+    <File Include="css/bootstrap-theme.css">
+      <publishTime>02/15/2016 10:02:53</publishTime>
+    </File>
+    <File Include="css/bootstrap-theme.min.css">
+      <publishTime>02/15/2016 10:02:53</publishTime>
+    </File>
+    <File Include="css/bootstrap.css">
+      <publishTime>02/15/2016 10:02:53</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>02/15/2016 10:02:53</publishTime>
+    </File>
+    <File Include="css/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-icons_222222_256x240.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-icons_454545_256x240.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-icons_888888_256x240.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="css/jquery-ui-1.7.custom.css">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="css/jquery.checkboxtree.css">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="css/jquery.checkboxtree.min.css">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/bootstrap/bootstrap.js">
+      <publishTime>02/15/2016 10:01:58</publishTime>
+    </File>
+    <File Include="js/bootstrap/bootstrap.min.js">
+      <publishTime>02/15/2016 10:01:58</publishTime>
+    </File>
+    <File Include="js/consultainicial.js">
+      <publishTime>02/15/2016 13:23:34</publishTime>
+    </File>
+    <File Include="js/css/bootstrap-theme.css">
+      <publishTime>02/15/2016 10:02:53</publishTime>
+    </File>
+    <File Include="js/css/bootstrap-theme.min.css">
+      <publishTime>02/15/2016 10:02:53</publishTime>
+    </File>
+    <File Include="js/css/bootstrap.css">
+      <publishTime>02/15/2016 10:02:53</publishTime>
+    </File>
+    <File Include="js/css/bootstrap.min.css">
+      <publishTime>02/15/2016 10:02:53</publishTime>
+    </File>
+    <File Include="js/css/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-icons_222222_256x240.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-icons_454545_256x240.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-icons_888888_256x240.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>02/15/2016 10:37:52</publishTime>
+    </File>
+    <File Include="js/css/jquery-ui-1.7.custom.css">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/css/jquery.checkboxtree.css">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/css/jquery.checkboxtree.min.css">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/jquery/jquery-1.3.2.min.js">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/jquery/jquery-1.4.4.js">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/jquery/jquery-1.5.1.min.js">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/jquery/jquery-ui-1.7.custom.min.js">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/jquery/jquery-ui-1.8.12.custom.min.js">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/jquery/jquery-ui-1.8.24.js">
+      <publishTime>02/15/2016 10:15:17</publishTime>
+    </File>
+    <File Include="js/jquery/jquery-ui-1.8.24.min.js">
+      <publishTime>02/15/2016 10:15:17</publishTime>
+    </File>
+    <File Include="js/jquery/jquery.checkboxtree.js">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/jquery/jquery.checkboxtree.min.js">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/jquery/jquery.cookie.js">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="js/jquery/jquery.min.js">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="js/jquery/jquery.prettyPhoto.js">
+      <publishTime>02/15/2016 09:59:54</publishTime>
+    </File>
+    <File Include="Service References/referenciadeservicio/enaproce.referenciadeservicio.HelloWorldResponse.datasource">
+      <publishTime>02/15/2016 09:54:28</publishTime>
+    </File>
+    <File Include="servicioweb.asmx">
+      <publishTime>02/15/2016 09:52:55</publishTime>
+    </File>
+    <File Include="visualizadorDeEstructuras.html">
+      <publishTime>02/15/2016 15:53:58</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/15/2016 13:30:40</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

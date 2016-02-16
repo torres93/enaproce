@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/jquery.checkboxtree.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/jquery-ui-1.7.custom.css" rel="stylesheet" />
+    <link href="css/jquery.checkboxtree.css" rel="stylesheet" />
+
+
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/bootstrap/bootstrap.js"></script>
+    <script src="js/jquery/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery/jquery-1.3.2.min.js"></script>
+    <script src="js/jquery/jquery-1.4.4.js"></script>
+    <script src="js/jquery/jquery-1.5.1.min.js"></script>
+    <script src="js/jquery/jquery-ui-1.7.custom.min.js"></script>
+    <script src="js/jquery/jquery-ui-1.8.12.custom.min.js"></script>
+    <script src="js/jquery/jquery-ui-1.8.24.js"></script>
+    <script src="js/jquery/jquery-ui-1.8.24.min.js"></script>
+    <script src="js/jquery/jquery.checkboxtree.js"></script>
+    <script src="js/jquery/jquery.checkboxtree.min.js"></script>
+    <script src="js/jquery/jquery.cookie.js"></script>
+
+    <script src="js/consultainicial.js"></script>
+    <title>Enaproce</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" hidden>
+            <div class="col-xs-4">
+                <h5>Modelo</h5>
+                <select id="modelo" onchange="consultaFuentes()">
+                    <option value="1">ENAPROCE</option>
+                    <option value="2">Sistemas_DSC</option>
+                    <option value="3">ENEC</option>
+                </select>
+            </div>
+        </div>
+        <p></p>
+        <div class="row" hidden>
+            <div class="col-xs-4">
+                <h5>Fuente</h5>
+                <select id="fuente" onchange="init(this.value)"></select>
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col-xs-12">
+                <code class="jquery" lang="text/javascript" style="visibility:hidden">
+                    $('#Desglose').checkboxTree();
+                </code>
+                <h5>Variable</h5>
+                <p></p>
+                <select id="selectVariables" onchange="consultaDesglose(this.value)"></select>
+                <ul id="Desglose"></ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h5>Consulta por</h5>
+                <select id="selectActividades" onchange="consultaDesgloseAct(this.value)"></select>
+                <p></p>
+                <ul id="DesgloseActs"></ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
