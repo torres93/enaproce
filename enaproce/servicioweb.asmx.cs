@@ -230,6 +230,7 @@ namespace enaproce
 
 
 
+
         [WebMethod]
         public string getConsulta(string modelo, string fuente, string variable, string tipoDato, string actividad, string anio)
         {
