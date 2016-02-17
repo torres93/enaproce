@@ -27,11 +27,12 @@
     <script src="js/jquery/jquery.cookie.js"></script>
 
     <script src="js/consultainicial.js"></script>
+    <script src="js/consultaTabulado.js"></script>
     <title></title>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row" hidden>
+        <div class="row" >
             <div class="col-xs-4">
                 <h5>Modelo</h5>
                 <select id="modelo" onchange="consultaFuentes()">
@@ -42,7 +43,7 @@
             </div>
         </div>
         <p></p>
-        <div class="row" hidden>
+        <div class="row" >
             <div class="col-xs-4">
                 <h5>Fuente</h5>
                 <select id="fuente" onchange="init(this.value); consultaAnios(this.value)"></select>
@@ -80,6 +81,17 @@
                 <ul id="DesgloseActs"></ul>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                <button onclick="consultaTabulado()">Consulta</button>
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
     </div>
+
+
+
+
 </body>
 </html>

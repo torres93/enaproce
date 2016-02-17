@@ -236,13 +236,57 @@ namespace enaproce
         {
             try
             {
+
+
+                string strVar = "";
+                string[] info = variable.Split(',');
+                for (int i = 0; i < info.Length; i++)
+                {
+                    strVar += "'" + info[i] + "'";
+                    if (i != info.Length - 1)
+                    {
+                        strVar += ",";
+                    }
+                }
+                string strAct = "";
+                info = actividad.Split(',');
+                for (int i = 0; i < info.Length; i++)
+                {
+                    strAct += "'" + info[i] + "'";
+                    if (i != info.Length - 1)
+                    {
+                        strAct += ",";
+                    }
+                }
+                string strTD = "";
+                info = tipoDato.Split(',');
+                for (int i = 0; i < info.Length; i++)
+                {
+                    strTD += "'" + info[i] + "'";
+                    if (i != info.Length - 1)
+                    {
+                        strTD += ",";
+                    }
+                }
+                string strAnio = "";
+                info = anio.Split(',');
+                for (int i = 0; i < info.Length; i++)
+                {
+                    strAnio += "'" + info[i] + "'";
+                    if (i != info.Length - 1)
+                    {
+                        strAnio += ",";
+                    }
+                }
+
+
                 uti = new UtileriasSQL(int.Parse(modelo));
                 SqlParameter[] paramcollection = new SqlParameter[5];
                 paramcollection[0] = new SqlParameter("@ID_FUENTE", fuente);
-                paramcollection[1] = new SqlParameter("@ACTIVIDAD", actividad);
-                paramcollection[2] = new SqlParameter("@VARIABLE", variable);
-                paramcollection[3] = new SqlParameter("@TIPO_DATO", tipoDato);
-                paramcollection[4] = new SqlParameter("@ANIO", anio);
+                paramcollection[1] = new SqlParameter("@ACTIVIDAD", strAct);
+                paramcollection[2] = new SqlParameter("@VARIABLE", strVar);
+                paramcollection[3] = new SqlParameter("@TIPO_DATO", strTD);
+                paramcollection[4] = new SqlParameter("@ANIO", strAnio);
                 SqlDataReader reader = uti.ExecuteReader(CommandType.StoredProcedure, "PR_OBTIENE_TABULADO_M", paramcollection);
 
                 List<Tabulado> List = new List<Tabulado>();

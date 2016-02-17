@@ -90,6 +90,7 @@
     <Content Include="js\bootstrap\bootstrap.js" />
     <Content Include="js\bootstrap\bootstrap.min.js" />
     <Content Include="js\consultainicial.js" />
+    <Content Include="js\consultaTabulado.js" />
     <Content Include="js\jquery\jquery-1.3.2.min.js" />
     <Content Include="js\jquery\jquery-1.4.4.js" />
     <Content Include="js\jquery\jquery-1.5.1.min.js" />
