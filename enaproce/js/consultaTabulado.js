@@ -20,7 +20,7 @@ function consultaTabulado() {
     })
     $("#DesgloseActs :checked").each(function () {
         console.log($(this).val())
-        if (variables != "") {
+        if (actividades != "") {
             actividades = actividades + ","
         }
         actividades = actividades + $(this).val();
