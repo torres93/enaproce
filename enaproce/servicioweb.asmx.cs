@@ -237,7 +237,7 @@ namespace enaproce
             try
             {
 
-
+                string hola = "" ;
                 string strVar = "";
                 string[] info = variable.Split(',');
                 for (int i = 0; i < info.Length; i++)
