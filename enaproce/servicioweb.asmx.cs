@@ -51,7 +51,7 @@ namespace enaproce
             return jsonString;
         }
         [WebMethod]
-        public string getActividades(string modelo,string fuente)
+        public string getActividades(string modelo, string fuente)
         {
             try
             {
@@ -123,8 +123,6 @@ namespace enaproce
 
         [WebMethod]
         public string getVariables(string modelo, string fuente)
-        
-
         {
             try
             {
@@ -197,6 +195,7 @@ namespace enaproce
             }
         }
 
+
         [WebMethod]
         public string getTipoDato(string modelo, string fuente, string variable)
         {
@@ -228,40 +227,68 @@ namespace enaproce
                 throw ex;
             }
         }
+
+
+
+        [WebMethod]
+        public string getConsulta(string modelo, string fuente, string variable, string tipoDato, string actividad, string anio)
+        {
+            try
+            {
+                uti = new UtileriasSQL(int.Parse(modelo));
+                SqlParameter[] paramcollection = new SqlParameter[5];
+                paramcollection[0] = new SqlParameter("@ID_FUENTE", fuente);
+                paramcollection[1] = new SqlParameter("@ACTIVIDAD", actividad);
+                paramcollection[2] = new SqlParameter("@VARIABLE", variable);
+                paramcollection[3] = new SqlParameter("@TIPO_DATO", tipoDato);
+                paramcollection[4] = new SqlParameter("@ANIO", anio);
+                SqlDataReader reader = uti.ExecuteReader(CommandType.StoredProcedure, "PR_OBTIENE_TABULADO_M", paramcollection);
+
+                List<Tabulado> List = new List<Tabulado>();
+                int nivelMaximo = 1;
+                while (reader.Read())
+                {
+                    Tabulado t = new Tabulado();
+                    t.IdActividad = reader["ID_ACTIVIDAD_COMPUESTA"].ToString();
+                    t.IdVariable = reader["ID_VARIABLE_COMPUESTA"].ToString();
+                    t.Anio = reader["ANIO"].ToString();
+                    t.Valor = reader["VALOR"].ToString();
+                    t.ValorPresenta = reader["VALOR_PRESENTACION"].ToString();
+                    t.IdEstatus = reader["ID_ESTATUS"].ToString();
+                    t.PresEstatus = reader["PRESENTACION_ESTATUS"].ToString();
+                    t.Estatus = reader["ESTATUS"].ToString();
+                    t.IdEstatusCifra = reader["ID_ESTATUS_CIFRA"].ToString();
+                    t.PresEstatusCifra = reader["PRESENTACION_ESTATUS_CIFRA"].ToString();
+                    t.EstatusCifra = reader["ESTATUS_CIFRA"].ToString();
+                    List.Add(t);
+
+                }
+                string jsonString = JsonConvert.SerializeObject(List);
+
+                reader.Close();
+                return jsonString;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 
-    
-        [WebMethod]
-        public string getTipoDato(string modelo, string fuente, string variable)
-        {
-            try
-            {
-                uti = new UtileriasSQL(int.Parse(modelo));
-                SqlParameter[] paramcollection = new SqlParameter[2];
-                paramcollection[0] = new SqlParameter("@ID_FUENTE", fuente);
-                paramcollection[1] = new SqlParameter("@ID_VARIABLE_PADRE", variable);
-                SqlDataReader reader = uti.ExecuteReader(CommandType.StoredProcedure, "PR_OBTIENE_FUE_VAR_TIPO_DATO", paramcollection);
-
-                List<TipoDatos> TipoDatosList = new List<TipoDatos>();
-                int nivelMaximo = 1;
-                while (reader.Read())
-                {
-                    TipoDatos td = new TipoDatos();
-                    td.Id_tipo_dato = reader["ID_TIPO_DATO"].ToString();
-                    td.Desc = reader["DESCRIPCION"].ToString();
-                    TipoDatosList.Add(td);
-
-                }
-                string jsonString = JsonConvert.SerializeObject(TipoDatosList);
-
-                reader.Close();
-                return jsonString;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+    public class Tabulado
+    {
+        public string IdActividad { get; set; }
+        public string IdVariable { get; set; }
+        public string Anio { get; set; }
+        public string Valor { get; set; }
+        public string ValorPresenta { get; set; }
+        public string IdEstatus { get; set; }
+        public string PresEstatus { get; set; }
+        public string Estatus { get; set; }
+        public string IdEstatusCifra { get; set; }
+        public string PresEstatusCifra { get; set; }
+        public string EstatusCifra { get; set; }
     }
 
     public class Entidad_M
@@ -304,11 +331,13 @@ public class Fuente
     public string IdFuente { get; set; }
     public string Descripcion { get; set; }
 }
-public class anios {
+public class anios
+{
     public string Anio { get; set; }
     public string Actual { get; set; }
 }
-public class TipoDatos {
+public class TipoDatos
+{
     public string Id_tipo_dato { set; get; }
     public string Desc { set; get; }
 }
