@@ -12,3 +12,10 @@ C:\Users\ernesto.herrera\Source\Repos\enaproce\enaproce\bin\Newtonsoft.Json.dll
 C:\Users\ernesto.herrera\Source\Repos\enaproce\enaproce\obj\Debug\enaproce.csprojResolveAssemblyReference.cache
 C:\Users\ernesto.herrera\Source\Repos\enaproce\enaproce\obj\Debug\enaproce.dll
 C:\Users\ernesto.herrera\Source\Repos\enaproce\enaproce\obj\Debug\enaproce.pdb
+C:\Users\ANGEL.PARGA\Source\Repos\enaproce\enaproce\bin\enaproce.dll.config
+C:\Users\ANGEL.PARGA\Source\Repos\enaproce\enaproce\bin\enaproce.dll
+C:\Users\ANGEL.PARGA\Source\Repos\enaproce\enaproce\bin\enaproce.pdb
+C:\Users\ANGEL.PARGA\Source\Repos\enaproce\enaproce\bin\Newtonsoft.Json.dll
+C:\Users\ANGEL.PARGA\Source\Repos\enaproce\enaproce\obj\Debug\enaproce.csprojResolveAssemblyReference.cache
+C:\Users\ANGEL.PARGA\Source\Repos\enaproce\enaproce\obj\Debug\enaproce.dll
+C:\Users\ANGEL.PARGA\Source\Repos\enaproce\enaproce\obj\Debug\enaproce.pdb
