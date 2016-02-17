@@ -373,20 +373,65 @@ actividades = [];
 function addActividadSelected(variable,id) {
     //checar si esta seleccionado
     elemento = document.getElementById(id+'i');
-   
-    if (elemento.hasAttribute("checked")) {
-        for (var i = 0; i <actividades.length; i++) {
-            if (actividades[i] == variable) {
-                actividades.splice(i, 1);
-                elemento.removeAttribute("checked");
-                console.log(actividades);
+    ch = document.getElementById(id).childNodes;
+    console.log(ch);
+    if (ch.length >= 3) {
+        for (var x = 0; x < ch.length; x++) {
+            if (ch[x].nodeName == "UL") {
+                if (ch[x].hasAttribute("checked")) {
+                    alert("ja");
+                    for (var i = 0; i < actividades.length; i++) {
+                        if (actividades[i] == variable) {
+                            actividades.splice(i, 1);
+                            elemento.removeAttribute("checked");
+                            console.log(actividades);
+                        }
+                    }
+                }
+                else {
+                    
+                    ch[x].setAttribute("checked", "true");
+                    for (var y = 0; y < ch[x].childNodes.length; y++) {
+                        if (actividades.length == 0) {
+                            
+                            actividades.push(ch[x].childNodes[y].id);
+                        }
+                        else {
+                            for (var i = 0; i < actividades.length; i++) {
+                                //alert("entro");
+                                console.log(ch[x].childNodes);
+                                if (actividades[i] == ch[x].childNodes[y].id) {
+
+                                } else {
+                                    actividades.push(ch[x].childNodes[y].id);
+                                    console.log(actividades);
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                }
             }
         }
     }
     else {
-        elemento.setAttribute("checked", "true");
-        actividades.push(variable);
-        console.log(actividades);
-        
+        alert("no tiene lista");
+        if (elemento.hasAttribute("checked")) {
+            for (var i = 0; i < actividades.length; i++) {
+                if (actividades[i] == variable) {
+                    actividades.splice(i, 1);
+                    elemento.removeAttribute("checked");
+                    console.log(actividades);
+                }
+            }
+        }
+        else {
+            elemento.setAttribute("checked", "true");
+            actividades.push(variable);
+            console.log(actividades);
+
+        }
     }
+    
 }
