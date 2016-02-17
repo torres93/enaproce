@@ -5,6 +5,9 @@ var varSelected;
 var todasLasActividades;
 var jActividades;
 var actSelected;
+actividades = [];
+variables = [];
+bandera = "";
 $(document).ready(function () {
     consultaFuentes();
     consultaAnios(1);
@@ -194,7 +197,8 @@ function consultaDesgloseAct(actividad) {
             var label = document.createElement("label");
             li.id = "li" + jActividades[x].IdActividadCompuesta;
             input.type = "checkbox";
-            input.setAttribute("id", li.id+'i');
+            input.setAttribute("id", li.id + 'i');
+            input.setAttribute("value", jActividades[x].IdActividadCompuesta);
             input.setAttribute("onClick", "addActividadSelected('" + jActividades[x].IdActividadCompuesta + "','"+li.id+"')");
             label.innerHTML = jActividades[x].Descripcion;
 
@@ -254,8 +258,9 @@ function consultaDesglose(variable) {
             var label = document.createElement("label");
             li.id = "li" + jVariables[x].IdVariableCompuesta;
             input.type = "checkbox";
-            input.setAttribute("id",li.id+'i');
-            input.setAttribute("onClick", "addActividadSelected('" + jVariables[x].IdVariableCompuesta + "','"+li.id+"')");
+            input.setAttribute("id", li.id + 'i');
+            input.setAttribute("value", jVariables[x].IdVariableCompuesta);
+            input.setAttribute("onClick", "addVariableSelected('" + jVariables[x].IdVariableCompuesta + "','"+li.id+"')");
             label.innerHTML = jVariables[x].Descripcion;
 
             if (todasLasVariables[jVariables[x].IdVariableCompuesta].length > 0) {
@@ -369,24 +374,162 @@ function addVariableSelected(variable) {
     varSelected.length++;
 
 }
-actividades = [];
+
 function addActividadSelected(variable,id) {
     //checar si esta seleccionado
-    elemento = document.getElementById(id+'i');
-   
-    if (elemento.hasAttribute("checked")) {
-        for (var i = 0; i <actividades.length; i++) {
-            if (actividades[i] == variable) {
-                actividades.splice(i, 1);
-                elemento.removeAttribute("checked");
-                console.log(actividades);
+    elemento = document.getElementById(id + 'i');
+    ch = document.getElementById(id).childNodes;
+    if (ch.length >= 3) {
+        for (var x = 0; x < ch.length; x++) {
+            if (ch[x].nodeName == "UL") {
+                if (ch[x].hasAttribute("checked")) {
+                    ch[x].removeAttribute("checked");
+                    for (var y = 0; y < ch[x].childNodes.length; y++) {
+                        elm = document.getElementById(ch[x].childNodes[y].id + "i");
+                        elm.removeAttribute("checked");
+                     
+                            for (var i = 0; i < actividades.length; i++) {
+                                chId = ch[x].childNodes[y].id;
+                                chIdC = chId.replace("li", "");
+                                if (actividades[i] == chIdC) {
+                                    actividades.splice(i, 1);
+                                }
+                            }
+                            console.log(actividades);
+                            
+                    }
+                }
+                else {
+                    
+                    ch[x].setAttribute("checked", "true");
+                    for (var y = 0; y < ch[x].childNodes.length; y++) {
+                        elm = document.getElementById(ch[x].childNodes[y].id + "i");
+                        elm.setAttribute("checked", "true");
+                        if (actividades.length == 0) {
+                            chId = ch[x].childNodes[y].id;
+                            chIdC=chId.replace("li", "");
+                            actividades.push(chIdC);
+                            console.log(actividades);
+                        }
+                        else {
+                            for (var i = 0; i < actividades.length; i++) {
+                                chId = ch[x].childNodes[y].id;
+                                chIdC = chId.replace("li", "");
+                                if (actividades[i] == chIdC) {
+                                    bandera = "yaExiste";
+                                }
+                            }
+                            if (bandera == "yaExiste") {
+
+                            } else {
+                                    chId = ch[x].childNodes[y].id;
+                                    chIdC = chId.replace("li", "");
+                                    actividades.push(chIdC);
+                                    console.log(actividades);
+                            }
+                        }
+                        
+                    }
+                    
+                }
             }
         }
     }
     else {
-        elemento.setAttribute("checked", "true");
-        actividades.push(variable);
-        console.log(actividades);
-        
+        if (elemento.hasAttribute("checked")) {
+            for (var i = 0; i < actividades.length; i++) {
+                if (actividades[i] == variable) {
+                    actividades.splice(i, 1);
+                    elemento.removeAttribute("checked");
+                    console.log(actividades);
+                }
+            }
+        }
+        else {
+            elemento.setAttribute("checked", "true");
+            document.getElementById(id).parentElement.setAttribute("checked", "true");
+            actividades.push(variable);
+            console.log(actividades);
+        }
     }
+    
+}
+
+function addVariableSelected(variable, id) {
+    //checar si esta seleccionado
+    elemento = document.getElementById(id + 'i');
+    ch = document.getElementById(id).childNodes;
+    if (ch.length >= 3) {
+        for (var x = 0; x < ch.length; x++) {
+            if (ch[x].nodeName == "UL") {
+                if (ch[x].hasAttribute("checked")) {
+                    ch[x].removeAttribute("checked");
+                    for (var y = 0; y < ch[x].childNodes.length; y++) {
+                        elm = document.getElementById(ch[x].childNodes[y].id + "i");
+                        elm.removeAttribute("checked");
+
+                        for (var i = 0; i < variables.length; i++) {
+                            chId = ch[x].childNodes[y].id;
+                            chIdC = chId.replace("li", "");
+                            if (variables[i] == chIdC) {
+                                variables.splice(i, 1);
+                            }
+                        }
+                        console.log(variables);
+                    }
+                }
+                else {
+
+                    ch[x].setAttribute("checked", "true");
+                    for (var y = 0; y < ch[x].childNodes.length; y++) {
+                        elm = document.getElementById(ch[x].childNodes[y].id + "i");
+                        elm.setAttribute("checked", "true");
+                        if (variables.length == 0) {
+                            chId = ch[x].childNodes[y].id;
+                            chIdC = chId.replace("li", "");
+                            variables.push(chIdC);
+                            console.log(variables);
+                        }
+                        else {
+                            for (var i = 0; i < variables.length; i++) {
+                                chId = ch[x].childNodes[y].id;
+                                chIdC = chId.replace("li", "");
+                                if (variables[i] == chIdC) {
+                                    bandera = "yaExiste";
+                                }
+                            }
+                            if (bandera == "yaExiste") {
+
+                            } else {
+                                chId = ch[x].childNodes[y].id;
+                                chIdC = chId.replace("li", "");
+                                variables.push(chIdC);
+                                console.log(variables);
+                            }
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+    else {
+        if (elemento.hasAttribute("checked")) {
+            for (var i = 0; i < variables.length; i++) {
+                if (variables[i] == variable) {
+                    variables.splice(i, 1);
+                    elemento.removeAttribute("checked");
+                    console.log(variables);
+                }
+            }
+        }
+        else {
+            elemento.setAttribute("checked", "true");
+            document.getElementById(id).parentElement.setAttribute("checked", "true");
+            variables.push(variable);
+            console.log(variables);
+        }
+    }
+
 }
